@@ -28,6 +28,10 @@
              setTimeout(function() {
                 document.getElementById("appStoreLink").style.display = "block";
             }, 2000);
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const birthdate = urlParams.get('idReferral');
+            document.getElementById("birthdate").innerHTML = birthdate;
         }
 
         // Run the button reveal function when the page loads
@@ -40,5 +44,6 @@
 <body>
     <a id="playStoreLink" style="display: none;" href="https://play.google.com/store/apps/details?id=id.bni.wondr&hl=id">Go to PlayStore (Android)</a>
     <a id="appStoreLink" style="display: none;" href="https://apps.apple.com/id/app/wondr-by-bni/id6499518320">Go to AppStore (iOS)</a>
+    <span id="birthdate"></span>
 </body>
 </html>
