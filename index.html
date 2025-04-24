@@ -7,12 +7,16 @@
     <script>
         // Function to check user agent and redirect
         function checkDeviceAndRedirect() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const birthdate = urlParams.get('idReferral');
+            document.getElementById("birthdate").innerHTML = birthdate;
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             
             if (/iPhone/i.test(userAgent)) {
-                window.location.href = "https://apps.apple.com/id/app/wondr-by-bni/id6499518320";
+                window.location.href = "https://apps.apple.com/app/id6466786350?mt=8";
             } else if (/Android/i.test(userAgent)) {
-                window.location.href = "https://play.google.com/store/apps/details?id=id.bni.wondr&hl=id";
+                window.location.href = "https://play.google.com/store/apps/details?id=id.bni.maverick.at&pcampaignid=fdl_long&url=https://wondr-landing-page.digi46.id/?idReferral%3D"+birthdate;
             }
         }
 
@@ -28,10 +32,6 @@
              setTimeout(function() {
                 document.getElementById("appStoreLink").style.display = "block";
             }, 2000);
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const birthdate = urlParams.get('idReferral');
-            document.getElementById("birthdate").innerHTML = birthdate;
         }
 
         // Run the button reveal function when the page loads
@@ -43,7 +43,7 @@
 </head>
 <body>
     <a id="playStoreLink" style="display: none;" href="https://play.google.com/store/apps/details?id=id.bni.wondr&hl=id">Go to PlayStore (Android)</a>
-    <a id="appStoreLink" style="display: none;" href="https://apps.apple.com/id/app/wondr-by-bni/id6499518320">Go to AppStore (iOS)</a>
+    <a id="appStoreLink" style="display: none;" href="https://apps.apple.com/app/id6466786350?mt=8">Go to AppStore (iOS)</a>
     <span id="birthdate"></span>
 </body>
 </html>
